@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 const SigninPage = ({loginAttempt}) => {
     return(
-    <View>
+    <View style = {styles.container}>
       <View style = {styles.header}>
           <Text style = {styles.text}>
             Access Control Door Lock
@@ -26,18 +26,26 @@ const SigninPage = ({loginAttempt}) => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }, 
+    
     header: {
-        flex:1,
-        paddingTop: 30,
+        height: 35,
         backgroundColor: "blue",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
     },
     
     SignButton: {
-      flex:1,
+      flex: 1,
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
     },
+
+    text: {
+        color : "white"
+    }
   });
 
 export default SigninPage;
