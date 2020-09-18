@@ -3,8 +3,8 @@ import {
   StyleSheet,
   Alert } from 'react-native';
 
-import firebase from '@react-native-firebase/app';
-import '@react-native-firebase/auth';
+import firebase from './constants/firebase';
+
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin'
 import SigninPage from './components/SigninPage';
 
