@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "959658651855",
+    "firebase_url": "https://acesscontrollockdoor.firebaseio.com",
+    "project_id": "acesscontrollockdoor",
+    "storage_bucket": "acesscontrollockdoor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959658651855:android:9f9b5f0110372f5a2bc7ba",
+        "android_client_info": {
+          "package_name": "com.accesscontroldoorlock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959658651855-0mj2bl75ccir83ddul7p56edmhjg2lgp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.accesscontroldoorlock",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "959658651855-pfj1va0r7gglohl7ti4kef7t7an7um7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDELa2Na1TQe_e-PMiYSJw-z7F6_0ZhLl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959658651855-pfj1va0r7gglohl7ti4kef7t7an7um7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
