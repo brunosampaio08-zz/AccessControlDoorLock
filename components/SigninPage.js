@@ -4,9 +4,10 @@ import {
     View,
     Text,
     TouchableOpacity,} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import {GoogleSigninButton} from '@react-native-community/google-signin';
+import Icon from 'react-native-vector-icons';
 
-const SigninPage = ({loginAttempt}) => {
+const SigninPage = ({loginAttempt, signOut, navigation}) => {
     return(
     <View style = {styles.container}>
       <View style = {styles.header}>
@@ -16,9 +17,17 @@ const SigninPage = ({loginAttempt}) => {
       </View>
       
       <View style = {styles.SignButton}>
-        <TouchableOpacity onPress={loginAttempt}>
-            <Icon name = "google" size = {24} color = "black"/>
+        <GoogleSigninButton 
+          size = {GoogleSigninButton.Size.Wide}
+          color = {GoogleSigninButton.Color.Dark}
+          onPress = {loginAttempt}
+        />
+        <TouchableOpacity onPress = {signOut}>
+          <Text>
+            SAIR
+          </Text>
         </TouchableOpacity>
+        
       </View>
 
     </View>
