@@ -1,41 +1,60 @@
-import React from 'react';
+//Required to be first beacuse of navigation
+import 'react-native-gesture-handler';
+
+import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet,
-  Alert } from 'react-native';
+  StyleSheet,} from 'react-native';
 
-import firebase from './constants/firebase';
+import {GoogleSignin} from '@react-native-community/google-signin'
 
-import {GoogleSignin, statusCodes} from '@react-native-community/google-signin'
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
 import SigninPage from './components/SigninPage';
+import RegisterPage from './components/RegisterPage';
+import HomePage from './components/HomePage';
+
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/auth';
+import LoadingScreen from './components/LoadingScreen';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  const loginAttempt = async (e) =>{
-    GoogleSignin.configure();
+  const [userInfo, setUserInfo] = useState();
+  const [initializing, setInitializing] = useState(true);
 
-  try{
-    const { idToken } = await GoogleSignin.signIn();
-
-    // Create a Google credential with the token
-    const googleCredential = firebase.auth().GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
-    return firebase.auth().signInWithCredential(googleCredential);
-  }catch(error){
-    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-      Alert.alert('Ok', 'SignIn cancelled', ['Ok']);
-    } else if (error.code === statusCodes.IN_PROGRESS) {
-      Alert.alert('Ok', 'SignIn still in progress', ['Ok']);
-    } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-      Alert.alert('Ok', 'Play services not available', ['Ok']);
-    } else {
-      Alert.alert('Ok', 'Error', ['Ok']);
-    }
+  function configureGoogleSignin() {
+    GoogleSignin.configure({
+      webClientId: '959658651855-pfj1va0r7gglohl7ti4kef7t7an7um7l.apps.googleusercontent.com',
+      offlineAccess: false,
+    });
   }
+  
+  useEffect(() => {
+    configureGoogleSignin();
 
-  }
+    const subscribe = firebase.auth().onAuthStateChanged(user => {
+      setUserInfo(user);
+      console.log(user);
+    });
+    
+    return subscribe;
+    
+  }, []);
 
   return (
-    <SigninPage loginAttempt = {loginAttempt}/>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {
+            userInfo == null ? (
+              <Stack.Screen name = "SigninPage" component = {SigninPage}/>
+            ) : (
+              <Stack.Screen name = "HomePage" component = {HomePage}/>
+            )
+          }
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 };
 
