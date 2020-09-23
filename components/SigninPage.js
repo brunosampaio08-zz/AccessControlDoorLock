@@ -10,6 +10,7 @@ import {GoogleSigninButton, GoogleSignin, statusCodes} from '@react-native-commu
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
 import '@react-native-firebase/firestore';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SigninPage = ({navigation}) => {
 
@@ -81,9 +82,21 @@ const SigninPage = ({navigation}) => {
   return(
     <View style = {styles.container}>
       <View style = {styles.header}>
-          <Text style = {styles.text}>
-            Access Control Door Lock
+          <Text>
+           {"\n"} <Icon name="address-card-o" size ={140} color="#0066cc"/>{"\n"}
           </Text>
+          <Text style = {styles.text1}>
+            ControLock <Icon name="lock" size ={25} color = "#0066cc"/>
+          </Text>
+          {/* <Text style = {styles.text2}>
+            control
+          </Text>
+          <Text style = {styles.text3}>
+            door
+          </Text>
+          <Text style = {styles.text4}>
+            lock <Icon name="lock" size ={25} color = "#0066cc"/>
+          </Text> */}
       </View>
       
       <View style = {styles.SignButton}>
@@ -101,25 +114,44 @@ const SigninPage = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flexDirection: 'column',
+        padding: 20,
+        flex: 1,
+        backgroundColor: "#e6f2ff",
     }, 
     
     header: {
-        height: 35,
-        backgroundColor: "blue",
+        flex:1,
+        flexDirection:'column',
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent:"center",
     },
     
     SignButton: {
-      flex: 1,
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "flex-end",
     },
 
-    text: {
-        color : "white"
-    }
+    text1: {
+      color : "#3399ff",
+      fontSize: 40,
+      fontFamily: 'fantasy',
+    },
+    text2: {
+      color : "#3399ff",
+      fontSize: 40,
+      fontFamily: 'fantasy',
+    },
+    text3: {
+      color : "#3399ff",
+      fontSize: 40,
+      fontFamily: 'fantasy',
+    },
+    text4: {
+      color : "#3399ff",
+      fontSize: 40,
+      fontFamily: 'fantasy',
+    },
   });
 
 export default SigninPage;

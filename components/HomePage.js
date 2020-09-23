@@ -8,24 +8,11 @@ import firebase from '../constants/firebase';
 
 const HomePage = ({navigation}) => {
 
-    const signOut = async () => {
-        try {
-          await GoogleSignin.revokeAccess();
-          await GoogleSignin.signOut();
-
-          firebase.auth().signOut();
-        } catch (error) {
-          ToastAndroid.show(error.toString(), 15);
-        }
-    }
-
     return (
         <View style = {styles.logOut}>
-            <TouchableOpacity onPress = {signOut}>
-                <Text>
-                    SAIR
-                </Text>
-            </TouchableOpacity>
+            <Text>
+                This is the homepage
+            </Text>
         </View>
     );
 }
