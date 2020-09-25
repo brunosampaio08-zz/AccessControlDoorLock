@@ -67,10 +67,14 @@ const App = () => {
           {
             userInfo == null ? (
               <Stack.Navigator>
+<<<<<<< HEAD
                 <Stack.Screen name = "SigninPage" component = {SigninPage} options={{
                     title:'',
                     headerShown: false,
                 }} />
+=======
+                <Stack.Screen name = "SigninPage" component = {SigninPage}/>
+>>>>>>> master
               </Stack.Navigator>
             ) : (
               <Drawer.Navigator initialRouteName="Home" drawerContent={props => {
