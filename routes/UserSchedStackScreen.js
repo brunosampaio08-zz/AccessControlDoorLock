@@ -16,7 +16,6 @@ const UserSchedStackScreen = ({navigation}) => {
     return(
         <UserSchedStack.Navigator>
             <UserSchedStack.Screen name = "MySchedule" component={UserSchedulePage} options = {{
-<<<<<<< HEAD
                 title: 'MySchedule      ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
@@ -26,21 +25,13 @@ const UserSchedStackScreen = ({navigation}) => {
                     textAlign: 'center',
                     justifyContent: 'center',
                 },
-=======
-                title: 'MySchedule',
->>>>>>> master
                 headerLeft: () => {
                     return (
                         <Icon.Button 
                         name="menu-fold" 
                         size = {25} 
-<<<<<<< HEAD
                         color="#3399ff"
                         backgroundColor="#e6f2ff"
-=======
-                        color="black"
-                        backgroundColor="white"
->>>>>>> master
                         onPress={() => {navigation.openDrawer()}}/> 
                     );
                 }

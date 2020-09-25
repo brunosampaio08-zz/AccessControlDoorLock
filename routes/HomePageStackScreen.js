@@ -1,12 +1,9 @@
 //React imports
 import React from 'react';
 
-<<<<<<< HEAD
 //Style imports
 import {View, Text, StyleSheet} from 'react-native';
 
-=======
->>>>>>> master
 //Navigation imports
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -22,7 +19,6 @@ const HomePageStackScreen = ({navigation}) => {
     return(
         <HomePageStack.Navigator>
             <HomePageStack.Screen name = "Home Page" component={HomePage} options = {{
-<<<<<<< HEAD
                 headerTitle: 'HomePage          ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
@@ -32,21 +28,13 @@ const HomePageStackScreen = ({navigation}) => {
                     textAlign: 'center',
                     justifyContent: 'center',
                 },
-=======
-                title: 'Home Page',
->>>>>>> master
                 headerLeft: () => {
                     return (
                         <Icon.Button 
                         name="menu-fold" 
                         size = {25} 
-<<<<<<< HEAD
                         color="#3399ff"
                         backgroundColor="#e6f2ff"
-=======
-                        color="black"
-                        backgroundColor="white"
->>>>>>> master
                         onPress={() => {navigation.openDrawer()}}/> 
                     );
                 }

@@ -69,18 +69,11 @@ const App = () => {
           {
             userInfo == null ? (
               <Stack.Navigator>
-<<<<<<< HEAD
                 <Stack.Screen name = "SigninPage" component = {SigninPage} options={{
                     title:'',
                     headerShown: false,
                 }} />
-=======
-                <Stack.Screen name = "SigninPage" component = {SigninPage}/>
-<<<<<<< Updated upstream
->>>>>>> master
-=======
                 <Stack.Screen name = "SigninForms" component= {SigninForms} />
->>>>>>> Stashed changes
               </Stack.Navigator>
             ) : (
               <Drawer.Navigator initialRouteName="Home" drawerContent={props => {
