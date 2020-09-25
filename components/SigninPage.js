@@ -15,15 +15,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const SigninPage = ({navigation}) => {
 
   const isUserinDB = async (user) => {
-    const usersCollection = firebase.firestore().collection('Users');
+    const usersCollection = firebase.firestore().collection('USERS');
 
     const currUser = await usersCollection.doc(user.uid).get();
 
     if(!currUser.exists){
+      navigation.navigate("SigninForms");
       usersCollection.doc(user.uid).set({
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
+        RFID: "",
       });
     }
   }
@@ -39,10 +41,9 @@ const SigninPage = ({navigation}) => {
       try{
         const userCredential = await firebase.auth().signInWithCredential(credential);
       
-        /*const user = userCredential.user;
-        
+        const user = userCredential.user;
+
         await isUserinDB(user);
-        */
 
         ToastAndroid.show('Logged In!', 5);
       }catch(error){

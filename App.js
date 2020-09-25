@@ -23,6 +23,9 @@ import '@react-native-firebase/auth';
 
 //Components import
 import SigninPage from './components/SigninPage';
+import SigninForms from './components/SigninForms';
+
+//Routes import
 import HomePageStackScreen from './routes/HomePageStackScreen';
 import UserSchedStackScreen from './routes/UserSchedStackScreen';
 
@@ -42,15 +45,14 @@ const App = () => {
   useEffect(() => {
     configureGoogleSignin();
 
-    const subscribe = firebase.auth().onAuthStateChanged(user => {
+    const subscribe = firebase.auth().onAuthStateChanged(async (user) => {
       setUserInfo(user);
-      console.log(user);
     });
     
     return subscribe;
     
   }, []);
-
+  
   const signOut = async () => {
     try {
       await GoogleSignin.revokeAccess();
@@ -74,7 +76,11 @@ const App = () => {
                 }} />
 =======
                 <Stack.Screen name = "SigninPage" component = {SigninPage}/>
+<<<<<<< Updated upstream
 >>>>>>> master
+=======
+                <Stack.Screen name = "SigninForms" component= {SigninForms} />
+>>>>>>> Stashed changes
               </Stack.Navigator>
             ) : (
               <Drawer.Navigator initialRouteName="Home" drawerContent={props => {

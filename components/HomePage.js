@@ -1,12 +1,9 @@
-import React, {useEffect} from 'react';
-
-import {View, TouchableOpacity, Text, ToastAndroid, StyleSheet} from 'react-native';
-
-import {GoogleSignin} from '@react-native-community/google-signin';
-
-import firebase from '../constants/firebase';
+//React imports
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 const HomePage = ({navigation}) => {
+    
 
     return (
         <View style = {styles.logOut}>
