@@ -23,8 +23,8 @@ const UserSchedulePage = () => {
         const subscribe = firebase.firestore().collectionGroup('DAY_SCHED').
             onSnapshot(snapshot => {
                 setLoading(true);
-                firebase.firestore().collection('USERS').doc(currUser.uid).get().then(userDoc => {                
-                    let newSched = [];
+                let newSched = [];
+                firebase.firestore().collection('USERS').doc(currUser.uid).get().then(userDoc => {
                     if(snapshot){
                         snapshot.forEach(doc =>{
                             if(doc.data().USER.isEqual(userDoc.ref)){
@@ -62,9 +62,7 @@ const UserSchedulePage = () => {
               
             ) : (
                 <View>
-                    <Text>
-                        CARREGANDO
-                    </Text>
+                    <ActivityIndicator />
                 </View>
             ) 
             }
