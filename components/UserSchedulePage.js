@@ -50,15 +50,7 @@ const UserSchedulePage = () => {
         <View style={styles.mainView}>
             { loading == false ?
             (
-                <View>
-                    <FlatList
-                        data={sched}
-                        renderItem={({item}) => (
-                            <UserScheduleItem item={item}/>
-                        )}
-                    />
-              
-                </View>
+                <UserScheduleItem DATA={sched}/>
               
             ) : (
                 <View>

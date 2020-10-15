@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 const HomePage = ({navigation}) => {
     
     const onPress = () => {
-        navigation.navigate('UserScheduleItem');
+        navigation.navigate('UserSchedulePage');
     }
 
 

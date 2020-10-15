@@ -130,6 +130,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                         collection('DAY_SCHED').add({
                                                                             HORA_INIT: '08:00',
                                                                             HORA_FIM: '10:00',
+                                                                            MES: month,
+                                                                            DIA: day,
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
                                                                         })
@@ -162,6 +164,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                             HORA_FIM: '10:00',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
+                                                                            MES: month,
+                                                                            DIA: day,
                                                                         })
                                                             }
                                                         })
@@ -193,6 +197,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                             HORA_FIM: '10:00',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
+                                                                            MES: month,
+                                                                            DIA: day,
                                                                         })
                                                             }
                                                         })
@@ -222,6 +228,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                     HORA_FIM: '15:30',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
+                                                                    MES: month,
+                                                                    DIA: day,
                                                                 })
                                                     }
                                                 })
@@ -251,6 +259,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                     HORA_FIM: '17:30',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
+                                                                    MES: month,
+                                                                    DIA: day,
                                                                 })
                                                     }
                                                 })
@@ -281,6 +291,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                     HORA_FIM: '19:00',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
+                                                                    MES: month,
+                                                                    DIA: day,
                                                                 })
                                                     }
                                                 })
@@ -311,6 +323,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                     HORA_FIM: '21:00',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
+                                                                    MES: month,
+                                                                    DIA: day,
                                                                 })
                                                     }
                                                 })
@@ -341,6 +355,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                     HORA_FIM: '23:00',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
+                                                                    MES: month,
+                                                                    DIA: day,
                                                                 })
                                                     }
                                                 })

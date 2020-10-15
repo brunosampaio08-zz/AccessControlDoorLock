@@ -1,68 +1,19 @@
 import React, { useState } from "react";
 import {View, FlatList, StatusBar, StyleSheet, Text, TouchableOpacity, Alert} from "react-native";
-
-const DATA = [
-    {
-      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      sala: "sala 1",
-      dia: "01",
-      mes: "01",
-      horaInicio: "01:00",
-      horaFim: "02:00",
-    },
-    {
-      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-      sala: "sala 2",
-      dia: "01",
-      mes: "01",
-      horaInicio: "01:00",
-      horaFim: "02:00",
-    },
-    {
-      id: "58694a0f-3da1-471f-bd96-145571e29d72",
-      sala: "sala 1",
-      dia: "02",
-      mes: "01",
-      horaInicio: "01:00",
-      horaFim: "02:00",
-    },
-    {
-    id: "2",
-    sala: "sala 1",
-    dia: "01",
-    mes: "01",
-    horaInicio: "01:00",
-    horaFim: "02:00",
-    },
-    {
-    id: "3",
-    sala: "sala 2",
-    dia: "01",
-    mes: "01",
-    horaInicio: "01:00",
-    horaFim: "02:00",
-    },
-    {
-    id: "4",
-    sala: "sala 1",
-    dia: "02",
-    mes: "01",
-    horaInicio: "01:00",
-    horaFim: "02:00",
-    },
-  ];
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/firestore';
 
 const Item = ({ item, onPress, style }) => (
     <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
       <View style={styles.item}>
-      <Text style={styles.title}>{item.dia}/{item.mes}</Text>
-      <Text style={styles.title}>{item.horaInicio} - {item.horaFim}</Text>
-      <Text style={styles.title}>{item.sala}</Text>
+      <Text style={styles.title}>{item.DIA}/{item.MES}</Text>
+      <Text style={styles.title}>{item.HORA_INIT} - {item.horaFim}</Text>
+      {/* <Text style={styles.title}>{item.sala}</Text> */}
       </View>
     </TouchableOpacity>
   );
 
-const App = () => {
+const UserScheduleItem = ({DATA}) => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
@@ -81,6 +32,19 @@ const App = () => {
     );
   };
 
+  const deleteReserve = (id) => {
+    firebase.firestore().collectionGroup('DAY_SCHED').get().then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.id + "-------->" + id);
+        if(doc.id == id){
+          doc.ref.delete();
+        }
+      })
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
   const onPress = (id) => {
     Alert.alert(
         "Exclusão de reserva",
@@ -93,7 +57,7 @@ const App = () => {
             },
             {
                 text: "Confirmar",
-                onPress: () => console.log("OK Pressed"),
+                onPress: () => deleteReserve(id),
                 style: "OK",
             },
         ],
@@ -166,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default UserScheduleItem;
