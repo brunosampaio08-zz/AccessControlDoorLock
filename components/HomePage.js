@@ -8,6 +8,7 @@ const HomePage = ({navigation}) => {
         navigation.navigate('UserScheduleItem');
     }
 
+
     return (
         <View style = {styles.logOut}>
             <TouchableOpacity onPress={onPress}>

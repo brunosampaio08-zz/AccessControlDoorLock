@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 //React imports
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet,} from 'react-native';
+  StyleSheet, View, Text} from 'react-native';
 
 //Google Signin import
 import {GoogleSignin} from '@react-native-community/google-signin'
@@ -28,6 +28,7 @@ import SigninForms from './components/SigninForms';
 //Routes import
 import HomePageStackScreen from './routes/HomePageStackScreen';
 import UserSchedStackScreen from './routes/UserSchedStackScreen';
+import AddReservationStackScreen from './routes/AddReservationStackScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -45,12 +46,12 @@ const App = () => {
   useEffect(() => {
     configureGoogleSignin();
 
-    const subscribe = firebase.auth().onAuthStateChanged(async (user) => {
+    const authSubscribe = firebase.auth().onAuthStateChanged(async (user) => {
       setUserInfo(user);
-    });
-    
-    return subscribe;
-    
+    })
+
+    return authSubscribe;
+
   }, []);
   
   const signOut = async () => {
@@ -84,8 +85,11 @@ const App = () => {
                   </DrawerContentScrollView>
                 )
               }}>
-                <Drawer.Screen name= "HomePage" component={HomePageStackScreen}/>
+                <Drawer.Screen name= "HomePage" 
+                component={HomePageStackScreen}
+                />
                 <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}/>
+                <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}/>
               </Drawer.Navigator>
             )
           }

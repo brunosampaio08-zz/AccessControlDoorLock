@@ -10,6 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@react-native-community/checkbox": "^0.5.5",
     "@react-native-community/google-signin": "^4.0.3",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^8.4.3",
@@ -21,6 +23,8 @@
     "firebase": "^7.21.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
+    "react-native-calendars": "^1.403.0",
+    "react-native-elements": "^2.3.2",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.8",
