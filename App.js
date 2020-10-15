@@ -1,28 +1,40 @@
 //Required to be first beacuse of navigation
 import 'react-native-gesture-handler';
 
+//React imports
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet,} from 'react-native';
+  StyleSheet, View, Text} from 'react-native';
 
+//Google Signin import
 import {GoogleSignin} from '@react-native-community/google-signin'
 
+//Navigation import
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator,
+  DrawerItemList,
+  DrawerContentScrollView,
+  DrawerItem} from '@react-navigation/drawer'
 
-import SigninPage from './components/SigninPage';
-import RegisterPage from './components/RegisterPage';
-import HomePage from './components/HomePage';
-
+//Firebase import
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
-import LoadingScreen from './components/LoadingScreen';
+
+//Components import
+import SigninPage from './components/SigninPage';
+import SigninForms from './components/SigninForms';
+
+//Routes import
+import HomePageStackScreen from './routes/HomePageStackScreen';
+import UserSchedStackScreen from './routes/UserSchedStackScreen';
+import AddReservationStackScreen from './routes/AddReservationStackScreen';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   const [userInfo, setUserInfo] = useState();
-  const [initializing, setInitializing] = useState(true);
 
   function configureGoogleSignin() {
     GoogleSignin.configure({
@@ -34,31 +46,59 @@ const App = () => {
   useEffect(() => {
     configureGoogleSignin();
 
-    const subscribe = firebase.auth().onAuthStateChanged(user => {
+    const authSubscribe = firebase.auth().onAuthStateChanged(async (user) => {
       setUserInfo(user);
-      console.log(user);
-    });
-    
-    return subscribe;
-    
-  }, []);
+    })
 
+    return authSubscribe;
+
+  }, []);
+  
+  const signOut = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
+
+      firebase.auth().signOut();
+    } catch (error) {
+      ToastAndroid.show(error.toString(), 15);
+    }
+  }
+  
   return (
       <NavigationContainer>
-        <Stack.Navigator>
           {
             userInfo == null ? (
-              <Stack.Screen name = "SigninPage" component = {SigninPage}/>
+              <Stack.Navigator>
+                <Stack.Screen name = "SigninPage" component = {SigninPage} options={{
+                    title:'',
+                    headerShown: false,
+                }} />
+                <Stack.Screen name = "SigninForms" component= {SigninForms} />
+              </Stack.Navigator>
             ) : (
-              <Stack.Screen name = "HomePage" component = {HomePage}/>
+              <Drawer.Navigator initialRouteName="Home" drawerContent={props => {
+                return (
+                  <DrawerContentScrollView {...props}>
+                    <DrawerItemList {...props} />
+                    <DrawerItem label="Logout" onPress={signOut} />
+                  </DrawerContentScrollView>
+                )
+              }}>
+                <Drawer.Screen name= "HomePage" 
+                component={HomePageStackScreen}
+                />
+                <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}/>
+                <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}/>
+              </Drawer.Navigator>
             )
           }
-        </Stack.Navigator>
       </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
+  
   
 });
 
