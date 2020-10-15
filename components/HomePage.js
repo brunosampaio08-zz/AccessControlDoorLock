@@ -1,15 +1,15 @@
 //React imports
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const HomePage = ({navigation}) => {
-    
+
 
     return (
-        <View style = {styles.logOut}>
-            <Text>
-                This is the homepage
-            </Text>
+        <View>
+            <TouchableOpacity>
+                <Text>CONSOLE</Text>
+            </TouchableOpacity>
         </View>
     );
 }

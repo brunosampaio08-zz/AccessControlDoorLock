@@ -5,18 +5,21 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 //Components Imports
-import HomePage from '../components/HomePage';
+import AddReservation from '../components/AddReservation';
+import ReservationForms from '../components/ReservationForms';
+import FloorSelect from '../components/FloorSelect';
+import ClassRoomSelect from '../components/ClassRoomSelect';
 
 //Vector icon import
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const HomePageStack =  createStackNavigator();
+const AddReservationStack =  createStackNavigator();
 
-const HomePageStackScreen = ({navigation}) => {
+const AddReservationStackScreen = ({navigation}) => {
     return(
-        <HomePageStack.Navigator>
-            <HomePageStack.Screen name = "Home Page" component={HomePage} options = {{
-                headerTitle: 'HomePage          ',
+        <AddReservationStack.Navigator>
+            <AddReservationStack.Screen name = "Home Page" component={AddReservation} options = {{
+                headerTitle: 'AddReservation          ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
                 },
@@ -36,8 +39,11 @@ const HomePageStackScreen = ({navigation}) => {
                     );
                 }
             }} />
-        </HomePageStack.Navigator>
+            <AddReservationStack.Screen name="Forms" component={ReservationForms}/>
+            <AddReservationStack.Screen name="FloorSelect" component={FloorSelect}/>
+            <AddReservationStack.Screen name="ClassRoomSelect" component={ClassRoomSelect}/>
+        </AddReservationStack.Navigator>
     )
 }
 
-export default HomePageStackScreen;
+export default AddReservationStackScreen;
