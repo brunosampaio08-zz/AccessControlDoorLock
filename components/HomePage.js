@@ -1,15 +1,21 @@
 //React imports
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const HomePage = ({navigation}) => {
     
+    const onPress = () => {
+        navigation.navigate('UserScheduleItem');
+    }
 
     return (
         <View style = {styles.logOut}>
-            <Text>
-                This is the homepage
-            </Text>
+            <TouchableOpacity onPress={onPress}>
+                <Text>
+                    ITEM
+                </Text>
+            </TouchableOpacity>
+                
         </View>
     );
 }
