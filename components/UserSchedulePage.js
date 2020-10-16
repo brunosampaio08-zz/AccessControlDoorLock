@@ -69,12 +69,35 @@ const UserSchedulePage = () => {
     ,[]);
 
     const compare = (a, b) => {
-        if(a.DIA < b.DIA){
+        if(a.DIA < b.DIA)
+        {
             return -1;
-        }else if(a.DIA > b.DIA){
+        }
+        else if(a.DIA > b.DIA)
+        {
             return 1;
-        }else{
-            return 0;
+        }
+        else
+        {
+            if (a.HORA_INIT < b.HORA_INIT)
+            {
+                return -1;
+            }
+            else if (a.HORA_INIT > b.HORA_INIT)
+            {
+                return 1;
+            }
+            else
+            {
+                if (a.HORA_FIM < b.HORA_FIM)
+                {
+                    return -1;
+                }
+                else if (a.HORA_FIM >= b.HORA_FIM)
+                {
+                    return 1;
+                }
+            }
         }
     }
 
