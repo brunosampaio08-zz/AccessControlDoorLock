@@ -74,19 +74,29 @@ const App = () => {
                     title:'',
                     headerShown: false,
                 }} />
-                <Stack.Screen name = "SigninForms" component= {SigninForms} />
+                <Stack.Screen name = "SigninForms" component= {SigninForms} options={{
+                    title:'',
+                    headerShown: false,
+                }} />
               </Stack.Navigator>
             ) : (
               <Drawer.Navigator initialRouteName="MySchedule" drawerContent={props => {
                 return (
                   <DrawerContentScrollView {...props}>
                     <DrawerItemList {...props} />
-                    <DrawerItem label="Logout" onPress={signOut} />
+                    <DrawerItem label="Sair da conta" onPress={signOut} />
                   </DrawerContentScrollView>
                 )
               }}>
-                <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}/>
-                <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}/>
+                <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}
+                options={{
+                  title:'Minhas reservas',
+                  headerShown: false,
+              }}/>
+                <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}options={{
+                    title:'Adicionar reserva',
+                    headerShown: false,
+                }}/>
               </Drawer.Navigator>
             )
           }
