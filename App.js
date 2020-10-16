@@ -77,7 +77,7 @@ const App = () => {
                 <Stack.Screen name = "SigninForms" component= {SigninForms} />
               </Stack.Navigator>
             ) : (
-              <Drawer.Navigator initialRouteName="Home" drawerContent={props => {
+              <Drawer.Navigator initialRouteName="MySchedule" drawerContent={props => {
                 return (
                   <DrawerContentScrollView {...props}>
                     <DrawerItemList {...props} />
@@ -85,7 +85,6 @@ const App = () => {
                   </DrawerContentScrollView>
                 )
               }}>
-                <Drawer.Screen name= "HomePage" component={HomePageStackScreen}/>
                 <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}/>
                 <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}/>
               </Drawer.Navigator>
