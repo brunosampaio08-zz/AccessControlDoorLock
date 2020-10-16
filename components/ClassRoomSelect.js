@@ -325,33 +325,27 @@ const ClassRoomSelect = ({route, navigation}) =>{
 const styles = StyleSheet.create({
     mainView: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "stretch",
+        alignContent: "stretch",
     },
     secondaryView: {
         flex: 1,
-        flexDirection: "row"
+        flexDirection: "row",
+        alignSelf: "stretch",
+        alignContent: "stretch",
     },
     itemView: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    btn: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#cce6ff",
-        marginHorizontal: 12,
-        marginVertical: 8,
+        justifyContent: "space-evenly",
+        alignItems: "stretch",
+        marginHorizontal: 4,
+        marginVertical: 4,
         borderRadius: 8,
+        alignSelf: "stretch",
+        alignContent: "stretch",
     },
-    texto: {
-        color: "#003366",
-        textAlign: "center",
-        fontSize: 25,
-        fontWeight: "bold",
-    }
 })
 
 export default ClassRoomSelect;
