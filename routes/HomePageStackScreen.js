@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 //Components Imports
 import HomePage from '../components/HomePage';
+import UserSchedulePage from '../components/UserSchedulePage';
 
 //Vector icon import
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -35,7 +36,8 @@ const HomePageStackScreen = ({navigation}) => {
                         onPress={() => {navigation.openDrawer()}}/> 
                     );
                 }
-            }} />
+            }}/>
+        <HomePageStack.Screen name="UserSchedulePage" component={UserSchedulePage} />
         </HomePageStack.Navigator>
     )
 }
