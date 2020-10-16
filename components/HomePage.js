@@ -1,22 +1,35 @@
 //React imports
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/auth';
 
 const HomePage = ({navigation}) => {
+    const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const currUser = firebase.auth().currentUser;
+        setUser(currUser);
+        setLoading(false);
+        console.log(currUser);
+    }, [])
     
     const onPress = () => {
         navigation.navigate('UserSchedulePage');
     }
 
-
     return (
         <View style = {styles.logOut}>
-            <TouchableOpacity onPress={onPress}>
+            {loading == true? (
                 <Text>
-                    ITEM
+                    CARREGANDO
                 </Text>
-            </TouchableOpacity>
-                
+            ) : (
+                <View>
+                    <Image source={{uri: user.photoURL}}/>
+                </View>
+            )}
         </View>
     );
 }

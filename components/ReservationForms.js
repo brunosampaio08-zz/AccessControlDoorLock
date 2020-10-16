@@ -25,16 +25,7 @@ const ReservationForms = ({route, navigation}) => {
     const [sixthClass, setSixthClass] = useState(false); //17:30 as 19:00
     const [seventhClass, setSeventhClass] = useState(false); //19:00 as 21:00
     const [eigthClass, setEigthClass] = useState(false); //21:00 as 23:00
-    const [available, setAvailable] = useState({ 
-                                                first: true,
-                                                second: true,
-                                                third: true,
-                                                fourth: true,
-                                                fifth: true,
-                                                sixth: true,
-                                                seventh: true,
-                                                eight: true,
-                                                            });
+    const [available, setAvailable] = useState([true, true, true, true, true, true, true, true]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -47,48 +38,47 @@ const ReservationForms = ({route, navigation}) => {
                 }else{
                     classDoc = classSnap.docs[0].ref;
                 }
-
                 firebase.firestore().collection('SCHEDULE').
                     where('MES', '==', month).get().then(monthSnap => {
-                        monthSnap.forEach(monthDoc => {
-                            firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
-                                collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
-                                    daySnap.forEach(dayDoc => {
-                                        firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
-                                            collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '08:00').
-                                                    where('SALA', '==', classDoc).get().
-                                                        then(finalSnap => {
-                                                            let currAvailable;
-                                                            finalSnap.forEach(doc => {
-                                                                if(doc.data().HORA_INIT == '08:00'){
-                                                                    currAvailable = {...available, first: false };
-                                                                    setAvailable(currAvailable);
-                                                                }else if(doc.data().HORA_INIT == '10:00'){
-                                                                    currAvailable = {...available, second: false }
-                                                                    setAvailable(currAvailable);
-                                                                }else if(doc.data().HORA_INIT == '12:00'){
-                                                                    setAvailable({third: false});
-                                                                }else if(doc.data().HORA_INIT == '13:30'){
-                                                                    setAvailable({fourth: false});
-                                                                }else if(doc.data().HORA_INIT == '15:30'){
-                                                                    setAvailable({fifth: false});
-                                                                }else if(doc.data().HORA_INIT == '17:30'){
-                                                                    setAvailable({sixth: false});
-                                                                }else if(doc.data().HORA_INIT == '19:00'){
-                                                                    setAvailable({seventh: false});
-                                                                }else if(doc.data().HORA_INIT == '21:00'){
-                                                                    setAvailable({eigth: false});
-                                                                }
-                                                            })
-
-                                                            console.log(available);
-
-                                                            setLoading(false);
+                        const monthDoc = monthSnap.docs[0];
+                        firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
+                            collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().
+                                then(daySnap => {
+                                    const dayDoc = daySnap.docs[0];
+                                    firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
+                                        collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
+                                                where('SALA', '==', classDoc).get().
+                                                    then(finalSnap => {
+                                                        console.log(monthDoc.id);
+                                                        console.log(dayDoc.id);
+                                                        console.log(classDoc);
+                                                        let currAvailable = available;
+                                                        console.log(finalSnap);
+                                                        finalSnap.forEach(doc => {
+                                                            console.log(doc.data().HORA_INIT);
+                                                            if(doc.data().HORA_INIT == '08:00'){
+                                                                currAvailable[0] = false;
+                                                            }else if(doc.data().HORA_INIT == '10:00'){
+                                                                currAvailable[1] = false;
+                                                            }else if(doc.data().HORA_INIT == '12:00'){
+                                                                currAvailable[2] = false;
+                                                            }else if(doc.data().HORA_INIT == '13:30'){
+                                                                currAvailable[3] = false;
+                                                            }else if(doc.data().HORA_INIT == '15:30'){
+                                                                currAvailable[4] = false;
+                                                                setAvailable(currAvailable);
+                                                            }else if(doc.data().HORA_INIT == '17:30'){
+                                                                currAvailable[5] = false;
+                                                            }else if(doc.data().HORA_INIT == '19:00'){
+                                                                currAvailable[6] = false;
+                                                            }else if(doc.data().HORA_INIT == '21:00'){
+                                                                currAvailable[7] = false;
+                                                            }
                                                         })
-                                        })
-                                    })
-                        })
+                                                        setAvailable(currAvailable);
+                                                        setLoading(false);
+                                                    })
+                                })
                     }).catch(err => {
                         console.log(err);
                     })
@@ -160,8 +150,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
                                                                         collection('DAY_SCHED').add({
-                                                                            HORA_INIT: '08:00',
-                                                                            HORA_FIM: '10:00',
+                                                                            HORA_INIT: '10:00',
+                                                                            HORA_FIM: '12:00',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
                                                                             MES: month,
@@ -193,8 +183,8 @@ const ReservationForms = ({route, navigation}) => {
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
                                                                         collection('DAY_SCHED').add({
-                                                                            HORA_INIT: '08:00',
-                                                                            HORA_FIM: '10:00',
+                                                                            HORA_INIT: '12:00',
+                                                                            HORA_FIM: '13:30',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
                                                                             MES: month,
@@ -387,7 +377,7 @@ const ReservationForms = ({route, navigation}) => {
 
     return (
         <View style={styles.mainView}>
-            {available.first == true ? (
+            {available[0] == true ? (
                 <View> 
                     <Text>
                         08:00 às 10:00
@@ -398,7 +388,7 @@ const ReservationForms = ({route, navigation}) => {
                     />    
                 </View>
             ) : null}
-            {available.second == true ? (
+            {available[1] == true ? (
                 <View>
                     <Text>
                         10:00 às 12:00
@@ -409,7 +399,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ) : null}
-            {available.third == true ? (
+            {available[2] == true ? (
                 <View>
                     <Text>
                         12:00 às 13:30
@@ -420,7 +410,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ) : null}
-            {available.fourth == true ? (
+            {available[3] == true ? (
                 <View>
                     <Text>
                         13:30 às 15:30
@@ -431,7 +421,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ) : null}
-            {available.fifth == true ? (
+            {available[4] == true ? (
                 <View>
                     <Text>
                         15:30 às 17:30
@@ -442,7 +432,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ): null}
-            {available.sixth == true? (
+            {available[5] == true? (
                 <View>
                     <Text>
                         17:30 às 19:00
@@ -453,7 +443,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ):null}
-            {available.seventh == true ? (
+            {available[6] == true ? (
                 <View>
                     <Text>
                         19:00 às 21:00
@@ -464,7 +454,7 @@ const ReservationForms = ({route, navigation}) => {
                     />
                 </View>
             ):null}
-            {available.eight == true ? (
+            {available[7] == true ? (
                 <View>
                     <Text>
                         21:00 às 23:00
