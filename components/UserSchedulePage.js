@@ -173,7 +173,9 @@ const UserSchedulePage = () => {
               
             ) : (
                 <View>
-                    <ActivityIndicator />
+                    <Text>
+                        CARREGANDO
+                    </Text>
                 </View>
             ) 
             }

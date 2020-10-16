@@ -14,8 +14,7 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                             {
-                                setClassroom(201); 
-                                navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+                                navigation.navigate('Forms', {classroom: '201', month: month, day: day});
                             }}
                             title="201"
                         />
@@ -23,8 +22,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(202); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '202', month: month, day: day});
                                 }}
                                 title="202"
                             />
@@ -34,8 +33,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(203); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '203', month: month, day: day});
                                 }}
                                 title="203"
                             />
@@ -43,8 +42,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(204); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '204', month: month, day: day});
                                 }}
                                 title="204"
                             />
@@ -54,8 +53,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(205); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '205', month: month, day: day});
                                 }}
                                 title="205"
                             />
@@ -63,8 +62,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(206); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '206', month: month, day: day});
                                 }}
                                 title="206"
                             />
@@ -74,8 +73,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(207); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '207', month: month, day: day});
                                 }}
                                 title="207"
                             />
@@ -83,8 +82,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(208); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '208', month: month, day: day});
                                 }}
                                 title="208"
                             />
@@ -94,8 +93,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(209); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '209', month: month, day: day});
                                 }}
                                 title="209"
                             />
@@ -103,8 +102,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(210); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '210', month: month, day: day});
                                 }}
                                 title="210"
                             />
@@ -119,8 +118,7 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                             {
-                                setClassroom(301); 
-                                navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+                                navigation.navigate('Forms', {classroom: '301', month: month, day: day});
                             }}
                             title="301"
                         />
@@ -128,8 +126,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(302); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '302', month: month, day: day});
                                 }}
                                 title="302"
                             />
@@ -139,8 +137,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(303); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '303', month: month, day: day});
                                 }}
                                 title="303"
                             />
@@ -148,8 +146,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(304); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '304', month: month, day: day});
                                 }}
                                 title="304"
                             />
@@ -159,8 +157,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(305); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '305', month: month, day: day});
                                 }}
                                 title="305"
                             />
@@ -168,8 +166,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(306); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '306', month: month, day: day});
                                 }}
                                 title="306"
                             />
@@ -179,8 +177,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(307); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '307', month: month, day: day});
                                 }}
                                 title="307"
                             />
@@ -188,8 +186,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(308); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '308', month: month, day: day});
                                 }}
                                 title="308"
                             />
@@ -199,8 +197,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(309); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '309', month: month, day: day});
                                 }}
                                 title="309"
                             />
@@ -208,8 +206,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(310); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '310', month: month, day: day});
                                 }}
                                 title="310"
                             />
@@ -224,8 +222,7 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                             {
-                                setClassroom(401); 
-                                navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+                                navigation.navigate('Forms', {classroom: '401', month: month, day: day});
                             }}
                             title="401"
                         />
@@ -233,8 +230,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(402); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '402', month: month, day: day});
                                 }}
                                 title="402"
                             />
@@ -244,8 +241,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(403); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '403', month: month, day: day});
                                 }}
                                 title="403"
                             />
@@ -253,8 +250,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(404); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '404', month: month, day: day});
                                 }}
                                 title="404"
                             />
@@ -264,8 +261,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(405); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '405', month: month, day: day});
                                 }}
                                 title="405"
                             />
@@ -273,8 +270,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(406); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '406', month: month, day: day});
                                 }}
                                 title="406"
                             />
@@ -284,8 +281,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(407); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '407', month: month, day: day});
                                 }}
                                 title="407"
                             />
@@ -293,8 +290,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(408); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '408', month: month, day: day});
                                 }}
                                 title="408"
                             />
@@ -304,8 +301,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style={styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(409); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '409', month: month, day: day});
                                 }}
                                 title="409"
                             />
@@ -313,8 +310,8 @@ const ClassRoomSelect = ({route, navigation}) =>{
                     <View style = {styles.itemView}>
                         <Button onPress = {() => 
                                 {
-                                    setClassroom(410); 
-                                    navigation.navigate('Forms', {classroom: classroom, month: month, day: day});
+ 
+                                    navigation.navigate('Forms', {classroom: '410', month: month, day: day});
                                 }}
                                 title="410"
                             />

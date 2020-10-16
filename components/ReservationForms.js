@@ -89,6 +89,17 @@ const ReservationForms = ({route, navigation}) => {
 
     const submitReservations = async () => {
         const currUser = firebase.auth().currentUser;
+
+        let classDoc = await firebase.firestore().collection('SALAS').
+            where('SALA', '==', classroom).get();
+        if(classDoc.empty){
+            classDoc = await firebase.firestore().collection('SALAS').
+                add({SALA: classroom});
+        }else{
+            classDoc = classDoc.docs[0].ref;
+        }
+
+        console.log(classDoc);
         
         await firebase.firestore().collection('USERS').doc(currUser.uid).get().then(async userSnapshot => {
             if(firstClass){
@@ -98,13 +109,11 @@ const ReservationForms = ({route, navigation}) => {
                             firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                 collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
                                     daySnap.forEach(dayDoc => {
-                                        console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
                                                 where('HORA_INIT', '==', '08:00').
                                                     where('SALA', '==', classDoc).get().
                                                         then(finalSnap => {
-                                                            
                                                             if(finalSnap.empty){
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
@@ -133,7 +142,6 @@ const ReservationForms = ({route, navigation}) => {
                             firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                 collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
                                     daySnap.forEach(dayDoc => {
-                                        console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
                                                 where('HORA_INIT', '==', '10:00').
@@ -167,7 +175,6 @@ const ReservationForms = ({route, navigation}) => {
                             firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                 collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
                                     daySnap.forEach(dayDoc => {
-                                        console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
                                                 where('HORA_INIT', '==', '12:00').
@@ -200,11 +207,11 @@ const ReservationForms = ({route, navigation}) => {
                             firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                 collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
                                     daySnap.forEach(dayDoc => {
-                                        console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '13:30').get().then(finalSnap => {
-                                                    console.log('FINAL');
+                                                where('HORA_INIT', '==', '13:30').
+                                                    where('SALA', '==', classDoc).get().
+                                                        then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
@@ -235,7 +242,9 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '15:30').get().then(finalSnap => {
+                                                where('HORA_INIT', '==', '15:30').
+                                                where('SALA', '==', classDoc).get().
+                                                then(finalSnap => {
                                                     console.log('FINAL');
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
@@ -268,7 +277,9 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '17:30').get().then(finalSnap => {
+                                                where('HORA_INIT', '==', '17:30').
+                                                where('SALA', '==', classDoc).get().
+                                                then(finalSnap => {
                                                     console.log('FINAL');
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
@@ -301,8 +312,9 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '19:00').get().then(finalSnap => {
-                                                    console.log('FINAL');
+                                                where('HORA_INIT', '==', '19:00').
+                                                where('SALA', '==', classDoc).get().
+                                                then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
@@ -336,8 +348,9 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '21:00').get().then(finalSnap => {
-                                                    console.log('FINAL');
+                                                where('HORA_INIT', '==', '21:00').
+                                                where('SALA', '==', classDoc).get().
+                                                then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
@@ -366,102 +379,112 @@ const ReservationForms = ({route, navigation}) => {
         navigation.dispatch(popAction);
     }
 
-    return (
-        <View style={styles.mainView}>
-                 
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}> 
-                    08:00 às 10:00 
+    if(loading){
+        return(
+            <View>
+                <Text>
+                    CARREGANDO HORARIOS
                 </Text>
-                <CheckBox 
-                    value={firstClass}
-                    onValueChange={(newValue) => setFirstClass(newValue)}
-                    style = {styles.checkbox}
-                />
             </View>
-            
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    10:00 às 12:00
-                </Text>
-                <CheckBox
-                    value={secondClass}
-                    onValueChange={(newValue) => setSecondClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View >
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    12:00 às 13:30
-                </Text>
-                <CheckBox
-                    value={thirdClass}
-                    onValueChange={(newValue) => setThirdClass(newValue)}
-                    style = {styles.checkbox}
-                />
+        )
+    }else{
+        return (
+            <View style={styles.mainView}>
+                     
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}> 
+                        08:00 às 10:00 
+                    </Text>
+                    <CheckBox 
+                        value={firstClass}
+                        onValueChange={(newValue) => setFirstClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        10:00 às 12:00
+                    </Text>
+                    <CheckBox
+                        value={secondClass}
+                        onValueChange={(newValue) => setSecondClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View >
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        12:00 às 13:30
+                    </Text>
+                    <CheckBox
+                        value={thirdClass}
+                        onValueChange={(newValue) => setThirdClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        13:30 às 15:30
+                    </Text>
+                    <CheckBox
+                        value={fourthClass}
+                        onValueChange={(newValue) => setFourthClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        15:30 às 17:30
+                    </Text>
+                    <CheckBox
+                        value={fifthClass}
+                        onValueChange={(newValue) => setFifthClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        17:30 às 19:00
+                    </Text>
+                    <CheckBox
+                        value={sixthClass}
+                        onValueChange={(newValue) => setSixthClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        19:00 às 21:00
+                    </Text>
+                    <CheckBox
+                        value={seventhClass}
+                        onValueChange={(newValue) => setSeventhClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.checkboxContainer}>
+                    <Text style = {styles.texto}>
+                        21:00 às 23:00
+                    </Text>
+                    <CheckBox
+                        value={eigthClass}
+                        onValueChange={(newValue) => setEigthClass(newValue)}
+                        style = {styles.checkbox}
+                    />
+                </View>
+                <View style={styles.BtnContainer}>
+                    <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
+                        <Icon name = "pluscircleo" size = {25} color = "white" >
+                            <Text>  </Text>
+                            <Text style = {styles.btnText}>
+                                Reservar 
+                            </Text>
+                        </Icon>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    13:30 às 15:30
-                </Text>
-                <CheckBox
-                    value={fourthClass}
-                    onValueChange={(newValue) => setFourthClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View>
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    15:30 às 17:30
-                </Text>
-                <CheckBox
-                    value={fifthClass}
-                    onValueChange={(newValue) => setFifthClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View>
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    17:30 às 19:00
-                </Text>
-                <CheckBox
-                    value={sixthClass}
-                    onValueChange={(newValue) => setSixthClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View>
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    19:00 às 21:00
-                </Text>
-                <CheckBox
-                    value={seventhClass}
-                    onValueChange={(newValue) => setSeventhClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View>
-            <View style={styles.checkboxContainer}>
-                <Text style = {styles.texto}>
-                    21:00 às 23:00
-                </Text>
-                <CheckBox
-                    value={eigthClass}
-                    onValueChange={(newValue) => setEigthClass(newValue)}
-                    style = {styles.checkbox}
-                />
-            </View>
-            <View style={styles.BtnContainer}>
-                <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
-                    <Icon name = "pluscircleo" size = {25} color = "white" >
-                        <Text>  </Text>
-                        <Text style = {styles.btnText}>
-                            Reservar 
-                        </Text>
-                    </Icon>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+        );
+    }
 }
 
 const styles = StyleSheet.create({
