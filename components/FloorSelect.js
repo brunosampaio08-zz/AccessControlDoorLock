@@ -21,22 +21,22 @@ const ClassRoomSelect = ({route, navigation}) =>{
         <View style={styles.mainView}>
             <View  style={styles.buttonOne}>
             <TouchableOpacity onPress={touchOne}>
-                <Text>
-                    200
+                <Text style={styles.texto}>
+                    2º andar
                 </Text>
             </TouchableOpacity>
             </View>
             <View  style={styles.buttonTwo}>
             <TouchableOpacity onPress={touchTwo}>
-                <Text>
-                    300
+                <Text style={styles.texto}>
+                    3º andar
                 </Text>
             </TouchableOpacity>
             </View>
             <View  style={styles.buttonThree}>
             <TouchableOpacity onPress={touchThree}>
-                <Text>
-                    400
+                <Text style={styles.texto}>
+                    4º andar
                 </Text>
             </TouchableOpacity>
             </View>
@@ -52,17 +52,35 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#cce6ff",
+        marginHorizontal: 12,
+        marginVertical: 8,
+        borderRadius: 8,
     },
     buttonTwo: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#cce6ff",
+        marginHorizontal: 12,
+        marginVertical: 8,
+        borderRadius: 8,
     },
     buttonThree: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#cce6ff",
+        marginHorizontal: 12,
+        marginVertical: 8,
+        borderRadius: 8,
     },
+    texto: {
+        color: "#003366",
+        textAlign: "center",
+        fontSize: 25,
+        fontWeight: "bold",
+    }
 })
 
 export default ClassRoomSelect;

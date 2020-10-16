@@ -19,7 +19,7 @@ const AddReservationStackScreen = ({navigation}) => {
     return(
         <AddReservationStack.Navigator>
             <AddReservationStack.Screen name = "Home Page" component={AddReservation} options = {{
-                headerTitle: 'AddReservation          ',
+                headerTitle: 'Reservar sala          ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
                 },

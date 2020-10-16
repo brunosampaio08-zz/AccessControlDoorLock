@@ -16,7 +16,7 @@ const UserSchedStackScreen = ({navigation}) => {
     return(
         <UserSchedStack.Navigator>
             <UserSchedStack.Screen name = "MySchedule" component={UserSchedulePage} options = {{
-                title: 'MySchedule      ',
+                title: 'Minhas reservas        ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
                 },

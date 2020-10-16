@@ -85,9 +85,7 @@ const App = () => {
                   </DrawerContentScrollView>
                 )
               }}>
-                <Drawer.Screen name= "HomePage" 
-                component={HomePageStackScreen}
-                />
+                <Drawer.Screen name= "HomePage" component={HomePageStackScreen}/>
                 <Drawer.Screen name= "MySchedule" component={UserSchedStackScreen}/>
                 <Drawer.Screen name = "AddReservation" component={AddReservationStackScreen}/>
               </Drawer.Navigator>

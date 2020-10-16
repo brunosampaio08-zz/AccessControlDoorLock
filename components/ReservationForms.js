@@ -288,68 +288,98 @@ const ReservationForms = ({route, navigation}) => {
 
     return (
         <View style={styles.mainView}>
-            <Text>
-                08:00 às 10:00
-            </Text>
-            <CheckBox
-                value={firstClass}
-                onValueChange={(newValue) => setFirstClass(newValue)}
-            />
-            <Text>
-                10:00 às 12:00
-            </Text>
-            <CheckBox
-                value={secondClass}
-                onValueChange={(newValue) => setSecondClass(newValue)}
-            />
-            <Text>
-                12:00 às 13:30
-            </Text>
-            <CheckBox
-                value={thirdClass}
-                onValueChange={(newValue) => setThirdClass(newValue)}
-            />
-            <Text>
-                13:30 às 15:30
-            </Text>
-            <CheckBox
-                value={fourthClass}
-                onValueChange={(newValue) => setFourthClass(newValue)}
-            />
-            <Text>
-                15:30 às 17:30
-            </Text>
-            <CheckBox
-                value={fifthClass}
-                onValueChange={(newValue) => setFifthClass(newValue)}
-            />
-            <Text>
-                17:30 às 19:00
-            </Text>
-            <CheckBox
-                value={sixthClass}
-                onValueChange={(newValue) => setSixthClass(newValue)}
-            />
-            <Text>
-                19:00 às 21:00
-            </Text>
-            <CheckBox
-                value={seventhClass}
-                onValueChange={(newValue) => setSeventhClass(newValue)}
-            />
-            <Text>
-                21:00 às 23:00
-            </Text>
-            <CheckBox
-                value={eigthClass}
-                onValueChange={(newValue) => setEigthClass(newValue)}
-            />
-            <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
-                <Text style = {styles.btnText}>
-                    <Icon name = "pluscircleo" size = {24} color = "black"/>
-                    Add Reservations
+                 
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}> 
+                    08:00 às 10:00 
                 </Text>
-            </TouchableOpacity>
+                <CheckBox 
+                    value={firstClass}
+                    onValueChange={(newValue) => setFirstClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    10:00 às 12:00
+                </Text>
+                <CheckBox
+                    value={secondClass}
+                    onValueChange={(newValue) => setSecondClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View >
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    12:00 às 13:30
+                </Text>
+                <CheckBox
+                    value={thirdClass}
+                    onValueChange={(newValue) => setThirdClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    13:30 às 15:30
+                </Text>
+                <CheckBox
+                    value={fourthClass}
+                    onValueChange={(newValue) => setFourthClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    15:30 às 17:30
+                </Text>
+                <CheckBox
+                    value={fifthClass}
+                    onValueChange={(newValue) => setFifthClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    17:30 às 19:00
+                </Text>
+                <CheckBox
+                    value={sixthClass}
+                    onValueChange={(newValue) => setSixthClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    19:00 às 21:00
+                </Text>
+                <CheckBox
+                    value={seventhClass}
+                    onValueChange={(newValue) => setSeventhClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.checkboxContainer}>
+                <Text style = {styles.texto}>
+                    21:00 às 23:00
+                </Text>
+                <CheckBox
+                    value={eigthClass}
+                    onValueChange={(newValue) => setEigthClass(newValue)}
+                    style = {styles.checkbox}
+                />
+            </View>
+            <View style={styles.BtnContainer}>
+                <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
+                    <Icon name = "pluscircleo" size = {25} color = "white" >
+                        <Text>  </Text>
+                        <Text style = {styles.btnText}>
+                            Reservar 
+                        </Text>
+                    </Icon>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -357,17 +387,48 @@ const ReservationForms = ({route, navigation}) => {
 const styles = StyleSheet.create({
     mainView: {
         flex:1,
-        alignItems: "center"
+        alignItems: "stretch",
+        justifyContent: "center",
+        
     },
     bnt: {
-        backgroundColor: '#c2bad8',
-        padding: 9,
-        margin: 5
+        borderRadius: 8,
+        alignSelf: "center",
+        alignItems: "center",
     },
     btnText: {
-        color: 'darkslateblue',
+        color: 'white',
+        fontSize: 25,
+    },
+    texto: {
         fontSize: 20,
-        textAlign: 'center'
+        alignSelf: "center",
+        color: "#003366",
+    },
+    checkboxContainer: {
+        backgroundColor: '#cce6ff',
+        flexDirection: "row",
+        flex: 1,
+        marginHorizontal: 4,
+        marginVertical: 4,
+        borderRadius: 8,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+        BtnContainer: {
+        backgroundColor: '#0073e6',
+        flexDirection: "row",
+        flex: 1,
+        marginHorizontal: 4,
+        marginVertical: 4,
+        borderRadius: 8,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    checkbox : {
+        alignSelf: "center",
     }
 });
 

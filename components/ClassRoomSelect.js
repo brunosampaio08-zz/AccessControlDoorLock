@@ -339,6 +339,21 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
+    },
+    btn: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#cce6ff",
+        marginHorizontal: 12,
+        marginVertical: 8,
+        borderRadius: 8,
+    },
+    texto: {
+        color: "#003366",
+        textAlign: "center",
+        fontSize: 25,
+        fontWeight: "bold",
     }
 })
 
