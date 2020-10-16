@@ -391,87 +391,125 @@ const ReservationForms = ({route, navigation}) => {
         return (
             <View style={styles.mainView}>
                      
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}> 
-                        08:00 às 10:00 
-                    </Text>
-                    <CheckBox 
-                        value={firstClass}
-                        onValueChange={(newValue) => setFirstClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
+                {
+                    available[0] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}> 
+                                08:00 às 10:00 
+                            </Text>
+                            <CheckBox 
+                                value={firstClass}
+                                onValueChange={(newValue) => setFirstClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null
+                }
                 
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        10:00 às 12:00
-                    </Text>
-                    <CheckBox
-                        value={secondClass}
-                        onValueChange={(newValue) => setSecondClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View >
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        12:00 às 13:30
-                    </Text>
-                    <CheckBox
-                        value={thirdClass}
-                        onValueChange={(newValue) => setThirdClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        13:30 às 15:30
-                    </Text>
-                    <CheckBox
-                        value={fourthClass}
-                        onValueChange={(newValue) => setFourthClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        15:30 às 17:30
-                    </Text>
-                    <CheckBox
-                        value={fifthClass}
-                        onValueChange={(newValue) => setFifthClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        17:30 às 19:00
-                    </Text>
-                    <CheckBox
-                        value={sixthClass}
-                        onValueChange={(newValue) => setSixthClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        19:00 às 21:00
-                    </Text>
-                    <CheckBox
-                        value={seventhClass}
-                        onValueChange={(newValue) => setSeventhClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
-                <View style={styles.checkboxContainer}>
-                    <Text style = {styles.texto}>
-                        21:00 às 23:00
-                    </Text>
-                    <CheckBox
-                        value={eigthClass}
-                        onValueChange={(newValue) => setEigthClass(newValue)}
-                        style = {styles.checkbox}
-                    />
-                </View>
+                {
+                    available[1] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                10:00 às 12:00
+                            </Text>
+                            <CheckBox
+                                value={secondClass}
+                                onValueChange={(newValue) => setSecondClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View >
+                    ) : null
+                }
+
+                {
+                    available[2] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                12:00 às 13:30
+                            </Text>
+                            <CheckBox
+                                value={thirdClass}
+                                onValueChange={(newValue) => setThirdClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null
+                }
+
+                {
+                    available[3] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                13:30 às 15:30
+                            </Text>
+                            <CheckBox
+                                value={fourthClass}
+                                onValueChange={(newValue) => setFourthClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null    
+                }
+
+                {
+                    available[4] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                15:30 às 17:30
+                            </Text>
+                            <CheckBox
+                                value={fifthClass}
+                                onValueChange={(newValue) => setFifthClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null 
+                }
+
+                {
+                    available[5] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                17:30 às 19:00
+                            </Text>
+                            <CheckBox
+                                value={sixthClass}
+                                onValueChange={(newValue) => setSixthClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null
+                }
+                
+                {
+                    available[6] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                19:00 às 21:00
+                            </Text>
+                            <CheckBox
+                                value={seventhClass}
+                                onValueChange={(newValue) => setSeventhClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null
+                }
+
+                {
+                    available[7] == true ? (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.texto}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                            />
+                        </View>
+                    ) : null
+                }
                 <View style={styles.BtnContainer}>
                     <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
                         <Icon name = "pluscircleo" size = {25} color = "white" >
