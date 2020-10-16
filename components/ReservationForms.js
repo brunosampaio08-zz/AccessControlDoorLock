@@ -406,7 +406,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                08:00 às 10:00 
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -433,7 +433,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                10:00 às 12:00
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -460,7 +460,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                12:00 às 13:30
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -487,7 +487,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                13:30 às 15:30
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -514,7 +514,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                15:30 às 17:30
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -541,7 +541,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                17:30 às 19:00
                             </Text>
                             <CheckBox
                                 value={eigthClass}
@@ -568,7 +568,7 @@ const ReservationForms = ({route, navigation}) => {
                     ) : (
                         <View style={styles.checkboxContainer}>
                             <Text style = {styles.textoriscado}>
-                                21:00 às 23:00
+                                19:00 às 21:00
                             </Text>
                             <CheckBox
                                 value={eigthClass}
