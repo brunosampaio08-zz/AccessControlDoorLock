@@ -18,7 +18,8 @@ const AddReservationStack =  createStackNavigator();
 const AddReservationStackScreen = ({navigation}) => {
     return(
         <AddReservationStack.Navigator>
-            <AddReservationStack.Screen name = "Home Page" component={AddReservation} options = {{
+            <AddReservationStack.Screen name = "Home Page" component={AddReservation} options = {
+            {
                 headerTitle: 'Reservar sala          ',
                 headerStyle:{
                     backgroundColor: '#e6f2ff',
@@ -39,9 +40,42 @@ const AddReservationStackScreen = ({navigation}) => {
                     );
                 }
             }} />
-            <AddReservationStack.Screen name="Forms" component={ReservationForms}/>
-            <AddReservationStack.Screen name="FloorSelect" component={FloorSelect}/>
-            <AddReservationStack.Screen name="ClassRoomSelect" component={ClassRoomSelect}/>
+            <AddReservationStack.Screen name="Forms" component={ReservationForms} options = {
+            {
+                headerTitle: 'Selecione os horários       ',
+                headerStyle:{
+                    backgroundColor: '#e6f2ff',
+                },
+                headerTitleStyle:{
+                    color: '#1a8cff',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                },
+            }}/>
+            <AddReservationStack.Screen name="FloorSelect" component={FloorSelect}options = {
+            {
+                headerTitle: 'Selecione o andar          ',
+                headerStyle:{
+                    backgroundColor: '#e6f2ff',
+                },
+                headerTitleStyle:{
+                    color: '#1a8cff',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                },
+            }}/>
+            <AddReservationStack.Screen name="ClassRoomSelect" component={ClassRoomSelect}options = {
+            {
+                headerTitle: 'Selecione a sala           ',
+                headerStyle:{
+                    backgroundColor: '#e6f2ff',
+                },
+                headerTitleStyle:{
+                    color: '#1a8cff',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                },
+            }}/>
         </AddReservationStack.Navigator>
     )
 }

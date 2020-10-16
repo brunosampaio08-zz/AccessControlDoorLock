@@ -26,7 +26,7 @@ const Item = ({ item, onPress, style }) => (
 
 const UserSchedulePage = () => {
     const [user, setUser] = useState();
-    const [sched, setSched] = useState();
+    const [sched, setSched] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedId, setSelectedId] = useState(null);
 
@@ -53,9 +53,10 @@ const UserSchedulePage = () => {
                                                 });
                                 }
                         }
-                        newSched.sort(compare);
-                        setSched(newSched);
+
                     }
+                    newSched.sort(compare);
+                    setSched(newSched);
                     setLoading(false);
                 }).catch(err => {
                     console.log(err);
@@ -163,7 +164,7 @@ const UserSchedulePage = () => {
       }
       
       const inicioLista = () => {
-        if(!sched)
+        if(sched.length == 0)
         {
             return (
                 listaVazia()
@@ -173,7 +174,7 @@ const UserSchedulePage = () => {
             return (
                 <TouchableOpacity styles={styles.item}>
                     <View style={styles.item}>
-                        <Text style={styles.cabecalho}> Selecione uma reserva para excluir. </Text>
+                        <Text style={styles.title}> Selecione uma reserva para excluir. </Text>
                     </View>
                 </TouchableOpacity>
             )
@@ -196,8 +197,8 @@ const UserSchedulePage = () => {
               
             ) : (
                 <View>
-                    <Text>
-                        CARREGANDO
+                    <Text style={styles.title}>
+                        Atualizando lista de reservas...
                     </Text>
                 </View>
             ) 
@@ -232,6 +233,7 @@ const styles = StyleSheet.create({
       title: {
         alignItems: "center",
         fontSize: 16,
+        color: "#0073e6",
       },
       cabecalho: {
         padding: 5,

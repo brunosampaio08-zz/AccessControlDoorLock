@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
     },
     texto: {
-        color: "#003366",
+        color: "#1a8cff",
         textAlign: "center",
         fontSize: 25,
         fontWeight: "bold",

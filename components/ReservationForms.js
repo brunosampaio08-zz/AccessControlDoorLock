@@ -382,8 +382,9 @@ const ReservationForms = ({route, navigation}) => {
     if(loading){
         return(
             <View>
-                <Text>
-                    CARREGANDO HORARIOS
+                <Text></Text>
+                <Text style={styles.texto}>
+                    Checando horários disponíveis...
                 </Text>
             </View>
         )
@@ -641,7 +642,7 @@ const styles = StyleSheet.create({
     texto: {
         fontSize: 20,
         alignSelf: "center",
-        color: "#003366",
+        color: "#0073e6",
     },
     textoriscado: {
         fontSize: 20,
