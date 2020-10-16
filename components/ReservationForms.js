@@ -403,7 +403,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
                 }
                 
                 {
@@ -418,7 +430,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View >
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
                 }
 
                 {
@@ -433,7 +457,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
                 }
 
                 {
@@ -448,7 +484,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null    
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )    
                 }
 
                 {
@@ -463,7 +511,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null 
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    ) 
                 }
 
                 {
@@ -478,7 +538,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
                 }
                 
                 {
@@ -493,7 +565,19 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
                 }
 
                 {
@@ -508,7 +592,20 @@ const ReservationForms = ({route, navigation}) => {
                                 style = {styles.checkbox}
                             />
                         </View>
-                    ) : null
+                    ) : (
+                        <View style={styles.checkboxContainer}>
+                            <Text style = {styles.textoriscado}>
+                                21:00 às 23:00
+                            </Text>
+                            <CheckBox
+                                value={eigthClass}
+                                onValueChange={(newValue) => setEigthClass(newValue)}
+                                style = {styles.checkbox}
+                                disabled = "true"
+                            />
+                        </View>
+                    )
+                    
                 }
                 <View style={styles.BtnContainer}>
                     <TouchableOpacity style = {styles.bnt} onPress={submitReservations}>
@@ -545,6 +642,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         alignSelf: "center",
         color: "#003366",
+    },
+    textoriscado: {
+        fontSize: 20,
+        alignSelf: "center",
+        color: "red",
+        textDecorationLine: "line-through"
     },
     checkboxContainer: {
         backgroundColor: '#cce6ff',
