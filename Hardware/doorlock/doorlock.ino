@@ -33,8 +33,8 @@
 #define SS_PIN 15
 #define RST_PIN 0
 
-#define servoPin D0
-#define closed 170
+#define servoPin 4
+#define closed 150
 #define opened 0
 
 //Defines Comunicação WIFI
@@ -168,6 +168,14 @@ void loop(){
     if(httpCode > 0){
       payload = http.getString();
       Serial.println(payload);
+
+      if(payload[13] == '1'){
+        openLock();
+        delay(5000);
+        closeLock();
+      }
+      payload.setCharAt(13, '0');
+      
     }
     else{
       Serial.println("Falha na requisição");
@@ -176,15 +184,6 @@ void loop(){
     http.end();
   }
   /*------------- REQUISICAO -------------*/
-
-  /*------------- ABRE/FECHA PORTA -------------*/
-  if(payload[13] == '1'){
-    openLock();
-    delay(5000);
-    closeLock();
-  }
-  payload.setCharAt(13, '0');
-  /*------------- ABRE/FECHA PORTA -------------*/
 }
 
 //Servo functions
