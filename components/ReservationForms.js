@@ -56,22 +56,22 @@ const ReservationForms = ({route, navigation}) => {
                                                         console.log(finalSnap);
                                                         finalSnap.forEach(doc => {
                                                             console.log(doc.data().HORA_INIT);
-                                                            if(doc.data().HORA_INIT == '08:00'){
+                                                            if(doc.data().HORA_INIT == '11:00'){
                                                                 currAvailable[0] = false;
-                                                            }else if(doc.data().HORA_INIT == '10:00'){
+                                                            }else if(doc.data().HORA_INIT == '13:00'){
                                                                 currAvailable[1] = false;
-                                                            }else if(doc.data().HORA_INIT == '12:00'){
+                                                            }else if(doc.data().HORA_INIT == '15:00'){
                                                                 currAvailable[2] = false;
-                                                            }else if(doc.data().HORA_INIT == '13:30'){
+                                                            }else if(doc.data().HORA_INIT == '16:30'){
                                                                 currAvailable[3] = false;
-                                                            }else if(doc.data().HORA_INIT == '15:30'){
+                                                            }else if(doc.data().HORA_INIT == '18:30'){
                                                                 currAvailable[4] = false;
                                                                 setAvailable(currAvailable);
-                                                            }else if(doc.data().HORA_INIT == '17:30'){
+                                                            }else if(doc.data().HORA_INIT == '20:30'){
                                                                 currAvailable[5] = false;
-                                                            }else if(doc.data().HORA_INIT == '19:00'){
+                                                            }else if(doc.data().HORA_INIT == '22:00'){
                                                                 currAvailable[6] = false;
-                                                            }else if(doc.data().HORA_INIT == '21:00'){
+                                                            }else if(doc.data().HORA_INIT == '00:00'){
                                                                 currAvailable[7] = false;
                                                             }
                                                         })
@@ -111,15 +111,15 @@ const ReservationForms = ({route, navigation}) => {
                                     daySnap.forEach(dayDoc => {
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '08:00').
+                                                where('HORA_INIT', '==', '11:00').
                                                     where('SALA', '==', classDoc).get().
                                                         then(finalSnap => {
                                                             if(finalSnap.empty){
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
                                                                         collection('DAY_SCHED').add({
-                                                                            HORA_INIT: '08:00',
-                                                                            HORA_FIM: '10:00',
+                                                                            HORA_INIT: '11:00',
+                                                                            HORA_FIM: '13:00',
                                                                             MES: month,
                                                                             DIA: day,
                                                                             USER: userSnapshot.ref,
@@ -144,15 +144,15 @@ const ReservationForms = ({route, navigation}) => {
                                     daySnap.forEach(dayDoc => {
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '10:00').
+                                                where('HORA_INIT', '==', '13:00').
                                                     where('SALA', '==', classDoc).get().
                                                         then(finalSnap => {
                                                             if(finalSnap.empty){
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
                                                                         collection('DAY_SCHED').add({
-                                                                            HORA_INIT: '10:00',
-                                                                            HORA_FIM: '12:00',
+                                                                            HORA_INIT: '13:00',
+                                                                            HORA_FIM: '15:00',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
                                                                             MES: month,
@@ -177,15 +177,15 @@ const ReservationForms = ({route, navigation}) => {
                                     daySnap.forEach(dayDoc => {
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '12:00').
+                                                where('HORA_INIT', '==', '15:00').
                                                     where('SALA', '==', classDoc).get().
                                                         then(finalSnap => {
                                                             if(finalSnap.empty){
                                                                 firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                                     collection('MONTH_SCHED').doc(dayDoc.id).
                                                                         collection('DAY_SCHED').add({
-                                                                            HORA_INIT: '12:00',
-                                                                            HORA_FIM: '13:30',
+                                                                            HORA_INIT: '15:00',
+                                                                            HORA_FIM: '16:30',
                                                                             USER: userSnapshot.ref,
                                                                             SALA: classDoc,
                                                                             MES: month,
@@ -209,15 +209,15 @@ const ReservationForms = ({route, navigation}) => {
                                     daySnap.forEach(dayDoc => {
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '13:30').
+                                                where('HORA_INIT', '==', '16:30').
                                                     where('SALA', '==', classDoc).get().
                                                         then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
                                                                 collection('DAY_SCHED').add({
-                                                                    HORA_INIT: '13:30',
-                                                                    HORA_FIM: '15:30',
+                                                                    HORA_INIT: '16:30',
+                                                                    HORA_FIM: '18:30',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
                                                                     MES: month,
@@ -242,7 +242,7 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '15:30').
+                                                where('HORA_INIT', '==', '18:30').
                                                 where('SALA', '==', classDoc).get().
                                                 then(finalSnap => {
                                                     console.log('FINAL');
@@ -250,8 +250,8 @@ const ReservationForms = ({route, navigation}) => {
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
                                                                 collection('DAY_SCHED').add({
-                                                                    HORA_INIT: '15:30',
-                                                                    HORA_FIM: '17:30',
+                                                                    HORA_INIT: '18:30',
+                                                                    HORA_FIM: '20:30',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
                                                                     MES: month,
@@ -277,7 +277,7 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '17:30').
+                                                where('HORA_INIT', '==', '20:30').
                                                 where('SALA', '==', classDoc).get().
                                                 then(finalSnap => {
                                                     console.log('FINAL');
@@ -285,8 +285,8 @@ const ReservationForms = ({route, navigation}) => {
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
                                                                 collection('DAY_SCHED').add({
-                                                                    HORA_INIT: '17:30',
-                                                                    HORA_FIM: '19:00',
+                                                                    HORA_INIT: '20:30',
+                                                                    HORA_FIM: '22:00',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
                                                                     MES: month,
@@ -312,15 +312,15 @@ const ReservationForms = ({route, navigation}) => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '19:00').
+                                                where('HORA_INIT', '==', '22:00').
                                                 where('SALA', '==', classDoc).get().
                                                 then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
                                                                 collection('DAY_SCHED').add({
-                                                                    HORA_INIT: '19:00',
-                                                                    HORA_FIM: '21:00',
+                                                                    HORA_INIT: '22:00',
+                                                                    HORA_FIM: '23:59',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
                                                                     MES: month,
@@ -343,24 +343,24 @@ const ReservationForms = ({route, navigation}) => {
                     where('MES', '==', month).get().then(monthSnap => {
                         monthSnap.forEach(monthDoc => {
                             firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
-                                collection('MONTH_SCHED').where('DIA', '==', day.toString()).get().then(daySnap => {
+                                collection('MONTH_SCHED').where('DIA', '==', (day+1).toString()).get().then(daySnap => {
                                     daySnap.forEach(dayDoc => {
                                         console.log(dayDoc);
                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                             collection('MONTH_SCHED').doc(dayDoc.id).collection('DAY_SCHED').
-                                                where('HORA_INIT', '==', '21:00').
+                                                where('HORA_INIT', '==', '00:01').
                                                 where('SALA', '==', classDoc).get().
                                                 then(finalSnap => {
                                                     if(finalSnap.empty){
                                                         firebase.firestore().collection('SCHEDULE').doc(monthDoc.id).
                                                             collection('MONTH_SCHED').doc(dayDoc.id).
                                                                 collection('DAY_SCHED').add({
-                                                                    HORA_INIT: '21:00',
-                                                                    HORA_FIM: '23:00',
+                                                                    HORA_INIT: '00:01',
+                                                                    HORA_FIM: '02:00',
                                                                     USER: userSnapshot.ref,
                                                                     SALA: classDoc,
                                                                     MES: month,
-                                                                    DIA: day,
+                                                                    DIA: day+1,
                                                                 })
                                                     }
                                                 })

@@ -14,11 +14,45 @@ import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/firestore';
 import '@react-native-firebase/auth';
 
+const calculateDay = (item) => {
+    if(item.HORA_INIT == '00:01'){
+        return item.DIA-1;
+    }else{
+        return item.DIA;
+    }
+}
+
+const calculateHour = (hora) => {
+    if(hora == '00:01'){
+        return '21:00';
+    }else if(hora == '23:59'){
+        return '21:00';
+    }else if(hora == '02:00'){
+        return '23:00';
+    }else if(hora == '11:00'){
+        return '08:00';
+    }else if(hora == '13:00'){
+        return '10:00';
+    }else if(hora == '15:00'){
+        return '12:00';
+    }else if(hora == '16:30'){
+        return '13:30';
+    }else if(hora == '18:30'){
+        return '15:30';
+    }else if(hora == '20:30'){
+        return '17:30';
+    }else if(hora == '22:00'){
+        return '19:00';
+    }else{
+        return '-1';
+    }
+}
+
 const Item = ({ item, onPress, style }) => (
     <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
       <View style={styles.item}>
-      <Text style={styles.title}>{item.DIA}/{item.MES}</Text>
-      <Text style={styles.title}>{item.HORA_INIT} - {item.HORA_FIM}</Text>
+      <Text style={styles.title}>{calculateDay(item)}/{item.MES}</Text>
+      <Text style={styles.title}>{calculateHour(item.HORA_INIT)} - {calculateHour(item.HORA_FIM)}</Text>
       <Text style={styles.title}>{item.SALA}</Text>
       </View>
     </TouchableOpacity>
@@ -42,16 +76,29 @@ const UserSchedulePage = () => {
                     let newSched = [];
                     if(snapshot){
                         for (const doc of snapshot.docs){
-                            const sala = await doc.data().SALA.get();
+                            if(doc.data().SALA){
+                                const sala = await doc.data().SALA.get();
                                 if(doc.data().USER.isEqual(userDoc.ref)){
-                                    newSched.push({id:doc.id, 
-                                                    HORA_INIT: doc.data().HORA_INIT,
-                                                    HORA_FIM: doc.data().HORA_FIM,
-                                                    DIA: doc.data().DIA,
-                                                    MES: doc.data().MES,
-                                                    SALA: sala.data().SALA,
-                                                });
+                                    if(doc.data().HORA_INIT == '00:00'){
+                                        newSched.push({id:doc.id, 
+                                            HORA_INIT: doc.data().HORA_INIT,
+                                            HORA_FIM: doc.data().HORA_FIM,
+                                            DIA: doc.data().DIA,
+                                            MES: doc.data().MES,
+                                            SALA: sala.data().SALA,
+                                        });
+                                    }else{
+                                        newSched.push({id:doc.id, 
+                                            HORA_INIT: doc.data().HORA_INIT,
+                                            HORA_FIM: doc.data().HORA_FIM,
+                                            DIA: doc.data().DIA,
+                                            MES: doc.data().MES,
+                                            SALA: sala.data().SALA,
+                                        });
+                                    }
+                                    
                                 }
+                            } 
                         }
 
                     }
